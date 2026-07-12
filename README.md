@@ -1,12 +1,20 @@
-# ✈️ PosePilot
+<p align="center">
+  <img src="./app_icon.png" width="128" height="128" alt="PosePilot Logo" />
+</p>
 
-> **Align. Focus. Capture.**  
-> An intelligent, real-time posture coaching and photography assistant for Android.
+<h1 align="center">PosePilot</h1>
 
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.0.20-blue.svg?style=flat&logo=kotlin)](https://kotlinlang.org)
-[![Android SDK](https://img.shields.io/badge/Min%20SDK-24-orange.svg?style=flat&logo=android)](https://developer.android.com/about/versions)
-[![MediaPipe](https://img.shields.io/badge/MediaPipe-0.10.14-green.svg?style=flat&logo=google)](https://developers.google.com/mediapipe)
-[![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-BOM--2024.08.00-teal.svg?style=flat&logo=jetpackcompose)](https://developer.android.com/jetpack/compose)
+<p align="center">
+  <strong>Align. Focus. Capture.</strong><br>
+  An intelligent, real-time posture coaching and photography assistant for Android.
+</p>
+
+<p align="center">
+  <a href="https://kotlinlang.org"><img src="https://img.shields.io/badge/Kotlin-2.0.20-blue.svg?style=flat&logo=kotlin" alt="Kotlin" /></a>
+  <a href="https://developer.android.com/about/versions"><img src="https://img.shields.io/badge/Min%20SDK-24-orange.svg?style=flat&logo=android" alt="Android SDK" /></a>
+  <a href="https://developers.google.com/mediapipe"><img src="https://img.shields.io/badge/MediaPipe-0.10.14-green.svg?style=flat&logo=google" alt="MediaPipe" /></a>
+  <a href="https://developer.android.com/about/versions"><img src="https://img.shields.io/badge/Jetpack%20Compose-BOM--2024.08.00-teal.svg?style=flat&logo=jetpackcompose" alt="Jetpack Compose" /></a>
+</p>
 
 ---
 
