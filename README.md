@@ -2,7 +2,7 @@
   <img src="./app_icon_v2.png" width="128" height="128" alt="PosePilot Logo" />
 </p>
 
-<h1 align="center">PosePilot</h1>
+<h1 align="center">Pose Pilot</h1>
 
 <p align="center">
   <strong>Align. Focus. Capture.</strong><br>
