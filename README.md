@@ -87,3 +87,17 @@ The repository is structured as a unified monorepo containing both the Android a
    - Go to **Signing & Capabilities**.
    - Check **Automatically manage signing** and select your personal Apple ID/Developer Team.
 4. Press `Cmd + R` or click the **Play** button to build and run the application.
+
+---
+
+## 👥 Contributors
+
+- **sourishnandy4-cell** (Lead Android Developer)
+- **satiricalguru** (Lead iOS Developer & Integrator)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
