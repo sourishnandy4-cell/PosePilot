@@ -6,117 +6,84 @@
 
 <p align="center">
   <strong>Align. Focus. Capture.</strong><br>
-  An intelligent, real-time posture coaching and photography assistant for Android.
+  An intelligent, real-time posture coaching and photography assistant for Android and iOS.
 </p>
 
 <p align="center">
   <a href="https://kotlinlang.org"><img src="https://img.shields.io/badge/Kotlin-2.0.20-blue.svg?style=flat&logo=kotlin" alt="Kotlin" /></a>
   <a href="https://developer.android.com/about/versions"><img src="https://img.shields.io/badge/Min%20SDK-24-orange.svg?style=flat&logo=android" alt="Android SDK" /></a>
   <a href="https://developers.google.com/mediapipe"><img src="https://img.shields.io/badge/MediaPipe-0.10.14-green.svg?style=flat&logo=google" alt="MediaPipe" /></a>
-  <a href="https://developer.android.com/about/versions"><img src="https://img.shields.io/badge/Jetpack%20Compose-BOM--2024.08.00-teal.svg?style=flat&logo=jetpackcompose" alt="Jetpack Compose" /></a>
+  <a href="https://developer.apple.com/swift/"><img src="https://img.shields.io/badge/Swift-5.10-orange.svg?style=flat&logo=swift" alt="Swift" /></a>
+  <a href="https://developer.apple.com/ios/"><img src="https://img.shields.io/badge/iOS-16.0%2B-blue.svg?style=flat&logo=apple" alt="iOS" /></a>
 </p>
 
 ---
 
 ## 🌟 Overview
 
-**PosePilot** is a state-of-the-art Android application that leverages **Google MediaPipe Tasks-Vision** to analyze human body language and posture in real-time. It acts as an interactive photography coach, guiding subjects to stand straight, level their shoulders, and frame themselves perfectly using advanced computational photography principles.
+**Pose Pilot** is a cross-platform mobile application (with native Android and iOS client implementations) that leverages advanced Computer Vision to analyze human body posture and framing in real-time. It acts as an interactive photography coach, guiding subjects to stand straight, level their shoulders, and frame themselves perfectly.
 
 ---
 
 ## ✨ Features
 
-- **🤖 Real-time Skeletal Overlay:** Renders a 33-point body skeleton tracked via MediaPipe with instant feedback.
+### 🤖 Android App
+- **Real-time Skeletal Overlay:** Renders a 33-point body skeleton tracked via Google MediaPipe with instant feedback.
 - **🎙️ Vocal Coaching Manager:** Provides real-time audio corrections (e.g., *"Level your shoulders a little"*) with custom speech throttling to prevent repetitive announcements.
-- **📸 Smart Shutter (Auto-Capture):** Automatically triggers a countdown timer (3s or 5s) once the subject maintains a correct posture configuration (Score $\geq$ 80%) for at least 1 second.
-- **📏 Advanced Framing Guides:** Features rule-of-thirds grid lines and an interactive horizon level tracking device roll using hardware rotation sensors.
-- **📊 Analytics & Insights Dashboard:** Captures historical posture score logs and presents them in a beautiful custom chart.
-- **📁 Scoped Storage Integration:** Standard gallery support including capturing, sharing, and securely deleting photos using modern `RecoverableSecurityException` handling.
+- **Smart Shutter (Auto-Capture):** Automatically triggers a countdown timer once the subject maintains a correct posture configuration (Score $\geq$ 80%) for at least 1 second.
+- **Advanced Framing Guides:** Features rule-of-thirds grid lines and an interactive horizon level tracking device roll using hardware rotation sensors.
+- **📊 Analytics & Insights Dashboard:** Captures historical posture score logs and presents them in a beautiful Room-backed custom chart.
+
+### 🍏 iOS App
+- **Real-time Skeletal Overlay:** Leverages Apple's native **Vision Framework** (`VNDetectHumanBodyPoseRequest`) for ultra-fast, low-latency 19-point body skeleton tracking.
+- **🎙️ Live Guidance & Instruction Banner:** Offers immediate feedback instructions (e.g., *"Move your left hand left"*, *"Level your shoulders"*) dynamically powered by `PoseMatcher`.
+- **Smart Shutter (Auto-Capture):** Automatically triggers a countdown timer (3s, 5s, 10s) and captures a photo when the subject maintains a perfect pose configuration (Score > 92%) for 1.5 seconds.
+- **🔊 Accessibility VoiceOver Support:** Includes announcement posting to guide visually impaired users step-by-step into the frame.
+- **Haptic Feedback:** Vibrates using CoreHaptics to signal skeleton detection and perfect pose alignment milestones.
 
 ---
 
 ## 🛠️ Architecture
 
-PosePilot is built on clean, modern Android architecture patterns (MVVM + Clean Architecture + Dependency Injection).
+The repository is structured as a unified monorepo containing both the Android and iOS codebases:
 
-```mermaid
-graph TD
-    UI[UI Layer: Jetpack Compose / CameraScreen] --> VM[ViewModel: CameraViewModel & GalleryViewModel]
-    VM --> Domain[Domain Layer: PostureAnalysisEngine & PoseSimilarityCalculator]
-    VM --> Data[Data Layer: CameraManager & PoseLandmarkerHelper]
-    Data --> DB[(Room Database: SessionRecord)]
-    Data --> DataStore[(Preferences DataStore)]
-    Data --> MediaPipe[MediaPipe vision-tasks API]
 ```
-
-### Key Directories
-- **`/app/src/main/java/com/posepilot/app/data`**: Camera implementation, MediaPipe inference helper, Room DB, Datastore, and Sensor listeners.
-- **`/app/src/main/java/com/posepilot/app/domain`**: Business rules, analysis heuristics, and matching math.
-- **`/app/src/main/java/com/posepilot/app/ui`**: Premium Compose interfaces, theme parameters, and custom canvases.
+/                       <-- Root Repository Directory
+├── app/                <-- Android Application Module (Kotlin, Compose, Room, DataStore)
+├── ios/                <-- iOS Application Project (Swift, SwiftUI, AVFoundation, Vision)
+├── app_icon_v2.png     <-- Unified Application Logo
+└── README.md           <-- This documentation
+```
 
 ---
 
 ## 🚀 Building & Running
 
-### Prerequisites
+### 🤖 Android
+#### Prerequisites
 - Android Studio Ladybug (or newer)
 - JDK 17
 - Android SDK 36 (or compiled via wrapper)
 
-### Build Command
-To compile the application, run:
-```bash
-./gradlew compileDebugKotlin
-```
-
-### Running Tests
-To execute the unit test suite (including posture scoring engine mathematical validations):
-```bash
-./gradlew test
-```
-
-### Generate Debug APK
-To build the installable debug APK directly:
-```bash
-./gradlew assembleDebug
-```
-The output APK will be generated at:  
-`app/build/outputs/apk/debug/app-debug.apk`
+#### Build Commands
+- **Compile Kotlin:** `./gradlew compileDebugKotlin`
+- **Run Unit Tests:** `./gradlew test`
+- **Generate Debug APK:** `./gradlew assembleDebug` (Output path: `app/build/outputs/apk/debug/app-debug.apk`)
 
 ---
 
-## 🍏 iOS / iPhone Integration Guide
+### 🍏 iOS / iPhone
+#### Prerequisites
+- macOS machine running Xcode 15 or newer
+- Swift 5.10
+- iOS device or simulator running iOS 16.0 or newer
 
-If you are an iOS developer looking to merge the iPhone codebase into this repository, please follow the unified platform structure outlined below:
-
-### Proposed Repository Layout
-```
-/                   <-- Root Repository Directory (Android files reside here)
-├── app/            <-- Android Application Module
-├── ios/            <-- [NEW] iOS Application Xcode Project & Source Code
-└── README.md       <-- This unified guide
-```
-
-### Step-by-Step Upload Instructions
-
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/sourishnandy4-cell/PosePilot.git
-   cd PosePilot
-   ```
-
-2. **Create the iOS Subfolder:**
-   Create a folder named `ios` in the root:
-   ```bash
-   mkdir ios
-   ```
-
-3. **Add Your iOS Code:**
-   Copy your complete Xcode project files, target sources, and workspace directories directly into the new `ios/` folder. Ensure you ignore system files like `Pods/` or `.xcuserdata/` by updating/adding `.gitignore` rules if needed.
-
-4. **Commit & Push to GitHub:**
-   ```bash
-   git add ios/
-   git commit -m "feat(ios): add initial iOS Swift implementation of PosePilot"
-   git push origin main
-   ```
+#### Build Instructions
+1. Open the project in Xcode using the project file:  
+   `ios/Pose Camera.xcodeproj`
+2. Select your target device (iPhone or Simulator).
+3. If building for a physical device:
+   - Select the root project target in the sidebar.
+   - Go to **Signing & Capabilities**.
+   - Check **Automatically manage signing** and select your personal Apple ID/Developer Team.
+4. Press `Cmd + R` or click the **Play** button to build and run the application.
