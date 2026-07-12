@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./app_icon.png" width="128" height="128" alt="PosePilot Logo" />
+  <img src="./app_icon_v2.png" width="128" height="128" alt="PosePilot Logo" />
 </p>
 
 <h1 align="center">PosePilot</h1>
