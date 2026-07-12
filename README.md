@@ -92,10 +92,27 @@ The repository is structured as a unified monorepo containing both the Android a
 
 ## 👥 Contributors
 
-- **sourishnandy4-cell** (Lead Android Developer)
-- **satiricalguru** (Lead iOS Developer & Integrator)
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/sourishnandy4-cell">
+        <img src="https://github.com/sourishnandy4-cell.png" width="100px;" alt="sourishnandy4-cell"/><br />
+        <sub><b>sourishnandy4-cell</b></sub>
+      </a><br />
+      Lead Android Developer
+    </td>
+    <td align="center">
+      <a href="https://github.com/satiricalguru">
+        <img src="https://github.com/satiricalguru.png" width="100px;" alt="satiricalguru"/><br />
+        <sub><b>satiricalguru</b></sub>
+      </a><br />
+      Lead iOS Developer & Integrator
+    </td>
+  </tr>
+</table>
 
 ---
+
 
 ## 📄 License
 
