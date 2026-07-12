@@ -106,7 +106,7 @@ The repository is structured as a unified monorepo containing both the Android a
         <img src="https://github.com/satiricalguru.png" width="100px;" alt="satiricalguru"/><br />
         <sub><b>satiricalguru</b></sub>
       </a><br />
-      Lead iOS Developer & Integrator
+      Lead iOS Developer
     </td>
   </tr>
 </table>
